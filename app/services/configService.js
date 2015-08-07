@@ -14,7 +14,7 @@ angular.module('gdgXBoomerang')
         'dateFormat'    : 'EEEE, MMMM d, y - H:mm ',
         'cover' : {
             title: 'Join the Official Mailing List',
-            subtitle: 'Hi there!!  The GDG Ghana community welcomes you. Please take a moment to briefly tell us about yourself and your projects. Remember to always Engage, Share and have Fun. Best Regards, GDG Organizing Team.',
+            subtitle: 'Please take a moment to briefly tell us about yourself and your projects',
             button: {
                 text: 'Join Now',
                 url: 'https://groups.google.com/forum/#!forum/ghana-gtug'
