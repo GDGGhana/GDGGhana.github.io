@@ -6,10 +6,10 @@ angular.module('gdgXBoomerang')
         'id'            : '117620641470438104052',
         'googleApi'     : 'AIzaSyDiLo2hSYg65hqbWqkk7k_uGmybjI7SpwQ',
         'pwaId'         : '5915725140705884785', // Picasa Web Album id, must belong to Google+ id above
-        'domain'        : 'http://www.gdgspacecoast.org',
+        'domain'        : '',
         'twitter'       : 'GDGGhana',
-        'facebook'      : 'gdgspacecoast',
-        // 'meetup'        : 'gdgspacecoast',
+        'facebook'      : '',
+        'meetup'        : '',
         // Change to 'EEEE, MMMM d, y - H:mm' for 24 hour time format.
         'dateFormat'    : 'EEEE, MMMM d, y - h:mm a',
         'cover' : {
