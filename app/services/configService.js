@@ -5,7 +5,7 @@ angular.module('gdgXBoomerang')
         'name'          : 'GDG Ghana',
         'id'            : '117620641470438104052',
         'googleApi'     : 'AIzaSyDiLo2hSYg65hqbWqkk7k_uGmybjI7SpwQ',
-        'pwaId'         : '5915725140705884785', // Picasa Web Album id, must belong to Google+ id above
+        'pwaId'         : '5984308345831533409', // Picasa Web Album id, must belong to Google+ id above
         'domain'        : '',
         'twitter'       : 'GDGGhana',
         'facebook'      : '',
