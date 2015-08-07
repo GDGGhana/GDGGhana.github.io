@@ -11,7 +11,7 @@ angular.module('gdgXBoomerang')
         'facebook'      : '',
         'meetup'        : '',
         // Change to 'EEEE, MMMM d, y - H:mm' for 24 hour time format.
-        'dateFormat'    : 'EEEE, MMMM d, y - h:mm a',
+        'dateFormat'    : 'EEEE, MMMM d, y - H:mm ',
         'cover' : {
             title: 'Worldwide GDG Events',
             subtitle: 'Directory of developer events organized by tags and displayed on a global map.',
