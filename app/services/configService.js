@@ -13,12 +13,13 @@ angular.module('gdgXBoomerang')
         // Change to 'EEEE, MMMM d, y - H:mm' for 24 hour time format.
         'dateFormat'    : 'EEEE, MMMM d, y - H:mm ',
         'cover' : {
-            title: 'Worldwide GDG Events',
-            subtitle: 'Directory of developer events organized by tags and displayed on a global map.',
+            title: 'Join the Official Mailing List',
+            subtitle: 'Hi there!!  The GDG Ghana community welcomes you. Please take a moment to briefly tell us about yourself and your projects. Remember to always Engage, Share and have Fun. Best Regards, GDG Organizing Team.',
             button: {
-                text: 'Find local events',
-                url: 'http://gdg.events/'
+                text: 'Join Now',
+                url: 'https://groups.google.com/forum/#!forum/ghana-gtug'
             }
+
         },
         'activities': {
             techTalks: true,
