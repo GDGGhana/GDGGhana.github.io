@@ -1,19 +1,11 @@
-GDG-X Boomerang
-=========
+Based on GDG-X Boomerang
+========================
 
-[![Join the chat at https://gitter.im/gdg-x/boomerang](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/gdg-x/boomerang?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-Boomerang is a template for a dynamic material design GDG chapter web site that can be deployed
+This repo is a fork of Boomerang, a template for a dynamic material design GDG chapter web site that can be deployed
 within 30 minutes. It pulls data from [GDG-X Hub](https://github.com/gdg-x/hub) and 
 [Google+ API](https://developers.google.com/+/api/) using [AngularJS](https://angularjs.org/) and 
 [Angular-Material](https://material.angularjs.org).
-
-See it in action: http://gdg-x.github.io/boomerang
-
-There are multiple forked versions for Google App Engine
-* Java - https://github.com/Splaktar/boomerang-gae
-* Python - https://github.com/neojato/boomerang-gae
-
+gdg
 Configuration
 ---------------
 Update app/services/configService.js with values appropriate for your group:
@@ -82,12 +74,3 @@ Make sure that you do the following successfully before committing:
 2. `gulp karma` - Make sure that you fix any broken tests.
 3. Protractor tests - Make sure that you fix any broken tests.
 4. If you changed any dependency versions in `bower.json`, make sure that `config/CDN.json` is updated to match.
-
-Sites using this template
----------------
-* http://gdgspacecoast.org/
-* http://www.gdg-bodensee.de/
-* http://www.gdgfresno.com/
-* http://gdg-brussels.org/
-* http://www.gdgschaumburg.com/
-* http://gdgdubai.com/
