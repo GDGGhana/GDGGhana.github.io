@@ -17,7 +17,7 @@ angular.module('gdgXBoomerang')
             subtitle: 'Please take a moment to briefly tell us about yourself and your projects',
             button: {
                 text: 'Join Now',
-                url: 'http://goo.gl/forms/OnbChd4CZu'
+                url: 'https://docs.google.com/forms/d/1wqX7GDMWXWDcXfGkeD29rsvxfrca2V2D1rtM3tyC8b8/viewform?c=0&w=1'
             }
 
         },
