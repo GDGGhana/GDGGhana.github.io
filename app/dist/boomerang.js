@@ -104,32 +104,6 @@ angular.module('gdgXBoomerang')
 });
 
 angular.module('gdgXBoomerang')
-.controller('AboutController', function ($http, $sce, Config, NavService) {
-    var vm = this;
-    vm.loading = true;
-    NavService.setNavTab(0);
-    vm.cover = Config.cover;
-
-    $http.jsonp('https://www.googleapis.com/plus/v1/people/' + Config.id +
-            '?callback=JSON_CALLBACK&fields=aboutMe%2Ccover%2Cimage%2CplusOneCount&key=' + Config.googleApi).
-        success(function (data) {
-            vm.desc = data.aboutMe;
-            $sce.trustAsHtml(vm.desc);
-
-            if (data.cover && data.cover.coverPhoto.url) {
-                vm.cover.url = data.cover.coverPhoto.url;
-            }
-            vm.loading = false;
-            vm.status = 'ready';
-        })
-        .error(function (error) {
-            vm.desc = 'Sorry, we failed to retrieve the About text from the Google+ API.';
-            vm.loading = false;
-            vm.status = 'ready';
-        });
-});
-
-angular.module('gdgXBoomerang')
 .controller('ActivitiesController', function (Config, NavService) {
     var vm = this;
     vm.loading = false;
@@ -220,6 +194,32 @@ angular.module('gdgXBoomerang')
     if (Config.activities.designSprints) {
         vm.activities.push(activityList.designSprints);
     }
+});
+
+angular.module('gdgXBoomerang')
+.controller('AboutController', function ($http, $sce, Config, NavService) {
+    var vm = this;
+    vm.loading = true;
+    NavService.setNavTab(0);
+    vm.cover = Config.cover;
+
+    $http.jsonp('https://www.googleapis.com/plus/v1/people/' + Config.id +
+            '?callback=JSON_CALLBACK&fields=aboutMe%2Ccover%2Cimage%2CplusOneCount&key=' + Config.googleApi).
+        success(function (data) {
+            vm.desc = data.aboutMe;
+            $sce.trustAsHtml(vm.desc);
+
+            if (data.cover && data.cover.coverPhoto.url) {
+                vm.cover.url = data.cover.coverPhoto.url;
+            }
+            vm.loading = false;
+            vm.status = 'ready';
+        })
+        .error(function (error) {
+            vm.desc = 'Sorry, we failed to retrieve the About text from the Google+ API.';
+            vm.loading = false;
+            vm.status = 'ready';
+        });
 });
 
 angular.module('gdgXBoomerang')
@@ -367,6 +367,21 @@ angular.module('gdgXBoomerang')
 });
 
 angular.module('gdgXBoomerang')
+.controller('OrganizersController', function ($http, Config, NavService) {
+    var vm = this;
+    vm.loading = false;
+    NavService.setNavTab(4);
+
+    var url = 'https://hub.gdgx.io/api/v1/chapters/' + Config.id + '?callback=JSON_CALLBACK';
+    var headers = { 'headers': { 'Accept': 'application/json;' }, 'timeout': 2000 };
+    $http.jsonp(url, headers).success(function (data) {
+        if (data.organizers) {
+            vm.organizers = data.organizers;
+        }
+    });
+});
+
+angular.module('gdgXBoomerang')
 .controller('NewsController', function ($http, $timeout, $filter, $log, $sce, Config, NavService) {
     var vm = this;
     NavService.setNavTab(1);
@@ -436,21 +451,6 @@ angular.module('gdgXBoomerang')
 });
 
 angular.module('gdgXBoomerang')
-.controller('OrganizersController', function ($http, Config, NavService) {
-    var vm = this;
-    vm.loading = false;
-    NavService.setNavTab(4);
-
-    var url = 'https://hub.gdgx.io/api/v1/chapters/' + Config.id + '?callback=JSON_CALLBACK';
-    var headers = { 'headers': { 'Accept': 'application/json;' }, 'timeout': 2000 };
-    $http.jsonp(url, headers).success(function (data) {
-        if (data.organizers) {
-            vm.organizers = data.organizers;
-        }
-    });
-});
-
-angular.module('gdgXBoomerang')
 .controller('PhotosController', function ($http, Config, NavService) {
     var vm = this;
     vm.loading = true;
@@ -485,6 +485,33 @@ angular.module('gdgXBoomerang')
                 'Logging out of your Google Account and logging back in may resolve this issue.';
             vm.loading = false;
         });
+});
+
+'use strict';
+
+angular.module('gdgXBoomerang')
+.directive('gplusPerson', function ($http, $filter, Config) {
+    return {
+        restrict: 'EA',
+        templateUrl: 'app/organizers/components/gplus_person.html',
+        scope: {
+            gplusId: '='
+        },
+        link: function (scope) {
+            scope.$watch('gplusId', function (oldVal, newVal) {
+                if (newVal) {
+                    $http.jsonp('https://www.googleapis.com/plus/v1/people/' + newVal +
+                        '?callback=JSON_CALLBACK&fields=aboutMe%2CdisplayName%2Cimage&key=' + Config.googleApi)
+                        .success(function (data) {
+                            if (data && data.image && data.image.url) {
+                                data.image.url = data.image.url.replace('sz=50', 'sz=170');
+                            }
+                            scope.person = data;
+                        });
+                }
+            });
+        }
+    };
 });
 
 angular.module('gdgXBoomerang')
@@ -568,32 +595,5 @@ angular.module('gdgXBoomerang')
 .directive('newsItemFooter', function () {
     return {
         templateUrl: '/app/news/components/newsItemFooter.html'
-    };
-});
-
-'use strict';
-
-angular.module('gdgXBoomerang')
-.directive('gplusPerson', function ($http, $filter, Config) {
-    return {
-        restrict: 'EA',
-        templateUrl: 'app/organizers/components/gplus_person.html',
-        scope: {
-            gplusId: '='
-        },
-        link: function (scope) {
-            scope.$watch('gplusId', function (oldVal, newVal) {
-                if (newVal) {
-                    $http.jsonp('https://www.googleapis.com/plus/v1/people/' + newVal +
-                        '?callback=JSON_CALLBACK&fields=aboutMe%2CdisplayName%2Cimage&key=' + Config.googleApi)
-                        .success(function (data) {
-                            if (data && data.image && data.image.url) {
-                                data.image.url = data.image.url.replace('sz=50', 'sz=170');
-                            }
-                            scope.person = data;
-                        });
-                }
-            });
-        }
     };
 });
