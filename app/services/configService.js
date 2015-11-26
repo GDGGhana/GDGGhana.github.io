@@ -6,7 +6,7 @@ angular.module('gdgXBoomerang')
         'id'            : '117620641470438104052',
         'googleApi'     : 'AIzaSyDiLo2hSYg65hqbWqkk7k_uGmybjI7SpwQ',
         'pwaId'         : '5984308345831533409', // Picasa Web Album id, must belong to Google+ id above
-        'domain'        : '',
+        'domain'        : 'gdgghana.com',
         'twitter'       : 'GDGGhana',
         'facebook'      : '',
         'meetup'        : '',
