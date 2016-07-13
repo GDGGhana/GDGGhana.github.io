@@ -2,8 +2,8 @@ Based on GDG-X Boomerang
 ========================
 
 This repo is a fork of Boomerang, a template for a dynamic material design GDG chapter web site that can be deployed
-within 30 minutes. It pulls data from [GDG-X Hub](https://github.com/gdg-x/hub) and 
-[Google+ API](https://developers.google.com/+/api/) using [AngularJS](https://angularjs.org/) and 
+within 30 minutes. It pulls data from [GDG-X Hub](https://github.com/gdg-x/hub) and
+[Google+ API](https://developers.google.com/+/api/) using [AngularJS](https://angularjs.org/) and
 [Angular-Material](https://material.angularjs.org).
 gdg
 Configuration
@@ -65,6 +65,7 @@ Deployment
 ---------------
 Deploy on your web server of choice (Apache, Nginx, etc).
 If you need a web server, Google App Engine's free tier should be more than sufficient for your chapter's needs.
+One could also deploy on github pages. With a domain to go. you are set. Just by pointing to the domain/subdomain via a cname file at the root of your github project
 
 Development Details
 ---------------
